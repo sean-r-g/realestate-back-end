@@ -18,10 +18,11 @@
     "url": "https://github.com/sean-r-g/realestate-back-end/issues"
   },
   "engines": {
-    "node":"16.14.2"
+    "node": "16.14.2"
   },
   "homepage": "https://github.com/sean-r-g/realestate-back-end#readme",
   "dependencies": {
+    "cors": "^2.8.5",
     "dotenv": "^16.0.1",
     "express": "^4.18.1",
     "mongoose": "^6.3.4"

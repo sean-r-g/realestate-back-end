@@ -6,6 +6,10 @@ const mongoose = require ('mongoose');
 const app = express ();
 const db = mongoose.connection;
 require('dotenv').config()
+const cors = require('cors')
+const condoController = require('./controllers/condocontroller.js')
+const houseController = require('./controllers/housecontroller.js')
+
 //___________________
 //Port
 //___________________
@@ -38,15 +42,17 @@ app.use(express.static('public'));
 // populates req.body with parsed info from forms - if no data from forms will return an empty object {}
 app.use(express.urlencoded({ extended: false }));// extended: false - does not allow nested objects in query strings
 app.use(express.json());// returns middleware that only parses JSON - may or may not need it depending on your project
-
+app.use(cors())
+app.use('/condos', condoController)
+app.use('/houses', houseController)
 
 //___________________
 // Routes
 //___________________
 //localhost:3000
-app.get('/' , (req, res) => {
-  res.send('Hello World!');
-});
+// app.get('/' , (req, res) => {
+//   res.send('Hello World!');
+// });
 
 //___________________
 //Listener
